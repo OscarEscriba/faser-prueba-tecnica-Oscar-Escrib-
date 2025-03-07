@@ -25,3 +25,12 @@ En este repositorio encontrarás un proyecto base Angular con elementos muy bás
 ## Resultados
 ![image](https://github.com/user-attachments/assets/4f4c2b1b-2d5b-4485-8655-9de11bf815b2)
 
+## Nota rapida:
+uiliza el sigueinte comando:
+**Cómo configurarlo:** 
+```powershell
+    $env:NODE_OPTIONS="--openssl-legacy-provider"
+```
+Este proyecto requiere que la variable de entorno `NODE_OPTIONS` esté configurada con el valor `--openssl-legacy-provider` para ejecutarse correctamente. Esto se debe a que versiones recientes de Node.js (como la v22.14.0) han actualizado OpenSSL, lo que puede causar incompatibilidad con ciertas configuraciones de proyectos más antiguos. Al establecer esta variable, permitimos que Node.js utilice proveedores de OpenSSL heredados, resolviendo el error `ERR_OSSL_EVP_UNSUPPORTED` y asegurando la compatibilidad.
+Corre el comando antes de ejecutar el `ng serve`. Se recomienda actualizar las dependencias del proyecto. 
+

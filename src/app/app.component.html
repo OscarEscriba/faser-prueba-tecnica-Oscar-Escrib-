@@ -1,7 +1,34 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	<ol>
-		<li *ngFor="let tarea of tareas">{{tarea.titulo}} ({{tarea.minutos}} minutos)</li>
-	</ol>
-</div>
+	
+	<div>
+	  <input type="text" [(ngModel)]="nuevaTareaTitulo" placeholder="Título de la tarea" />
+	  <input type="number" [(ngModel)]="nuevaTareaMinutos" placeholder="Duración (min)" />
+	  <button (click)="agregarTarea()">Agregar tarea</button>
+	</div>
+  
+	<table>
+	  <thead>
+		<tr>
+		  <th></th>
+		  <th (click)="ordenarPor('titulo')">Título</th>
+		  <th (click)="ordenarPor('minutos')">Duración (min)</th>
+		  <th>Destacada</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr *ngFor="let tarea of tareas">
+		  <td><input type="checkbox" (change)="toggleSeleccion(tarea.id)" /></td>
+		  <td [ngClass]="{'destacada': tarea.destacada}">{{ tarea.titulo }}</td>
+		  <td>{{ tarea.minutos }}</td>
+		  <td>{{ tarea.destacada ? 'Sí' : 'No' }}</td>
+		</tr>
+	  </tbody>
+	</table>
+  
+	<button (click)="eliminarTareas()">Eliminar seleccionadas</button>
+	<button (click)="destacarTareas()">Destacar seleccionadas</button>
+	<button (click)="ordenarAleatorio()">Ordenar aleatoriamente</button>
+  </div>	
+  

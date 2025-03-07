@@ -1,20 +1,27 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	
-	<div>
-	  <input type="text" [(ngModel)]="nuevaTareaTitulo" placeholder="Título de la tarea" />
-	  <input type="number" [(ngModel)]="nuevaTareaMinutos" placeholder="Duración (min)" />
-	  <button (click)="agregarTarea()">Agregar tarea</button>
-	</div>
-  
-	<table>
+
+	<button class="btn btn-primary" (click)="abrirModal()">📝 Agregar tarea</button>
+  <div *ngIf="modalVisible" class="modal-overlay">
+    <div class="modal">
+      <h3>Agregar Nueva Tarea</h3>
+      <div>
+        <input type="text" [(ngModel)]="nuevaTareaTitulo" placeholder="Título de la tarea" class="input" />
+        <input type="number" [(ngModel)]="nuevaTareaMinutos" placeholder="Duración (min)" class="input" />
+        <button (click)="agregarTarea()" class="btn btn-success">✅ Agregar</button>
+        <button (click)="cerrarModal()" class="btn btn-danger">❌ Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+	<table class="table">
 	  <thead>
 		<tr>
 		  <th></th>
 		  <th (click)="ordenarPor('titulo')">Título</th>
 		  <th (click)="ordenarPor('minutos')">Duración (min)</th>
-		  <th>Destacada</th>
+		  <th>Destacada 🌟</th>
 		</tr>
 	  </thead>
 	  <tbody>
@@ -27,8 +34,9 @@
 	  </tbody>
 	</table>
   
-	<button (click)="eliminarTareas()">Eliminar seleccionadas</button>
-	<button (click)="destacarTareas()">Destacar seleccionadas</button>
-	<button (click)="ordenarAleatorio()">Ordenar aleatoriamente</button>
+	<button (click)="eliminarTareas()" class="btn btn-danger">Eliminar seleccionadas</button>
+	<button (click)="destacarTareas()" class="btn btn-warning">Destacar seleccionadas</button>
+	<button (click)="ordenarAleatorio()" class="btn btn-secondary">Ordenar aleatoriamente</button>
+	<h3> Presiona el apartado de "titulo" o "duracion" para cambiar el orden en el que se presentan...</h3>
   </div>	
   

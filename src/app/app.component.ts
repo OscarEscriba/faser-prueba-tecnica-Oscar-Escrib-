@@ -13,6 +13,7 @@ export class AppComponent {
   nuevaTareaMinutos: number | null = null;
   tareasSeleccionadas: Set<number> = new Set();
   ordenAscendente: boolean = true;
+  modalVisible: boolean = false;
 
   constructor(public service: AppService) {}
 
@@ -34,6 +35,7 @@ export class AppComponent {
       this.tareas.push(nuevaTarea);
       this.nuevaTareaTitulo = '';
       this.nuevaTareaMinutos = null;
+	  this.cerrarModal();
     } else {
 	  alert('Por favor, complete los campos de la nueva tarea.');
 	}
@@ -65,9 +67,18 @@ export class AppComponent {
         t.destacada = !t.destacada;
       }
     });
+	this.tareasSeleccionadas.clear();
   }
 
   ordenarAleatorio() {
     this.tareas.sort(() => Math.random() - 0.5);
+  }
+  // Funciones para abrir y cerrar el modal
+  abrirModal() {
+    this.modalVisible = true;
+  }
+
+  cerrarModal() {
+    this.modalVisible = false;
   }
 }

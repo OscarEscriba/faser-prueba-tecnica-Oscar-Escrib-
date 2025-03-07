@@ -20,3 +20,8 @@ En este repositorio encontrarás un proyecto base Angular con elementos muy bás
 - Se favorecerá al código legible, comentado y que siga buenas prácticas de programación.
 - Concentrarse únicamente en el cumplimiento de los requerimientos. Se ignorará el aspecto gráfico de la aplicación.
 - Cualquier duda sobre los requerimientos o la entrega comunicarla vía WhatsApp.
+## Algunos cambios que se realizaron:
+- Se cambió la version de jasmine-core de 3.4.0 a 5.6.0
+## Resultados
+![image](https://github.com/user-attachments/assets/4f4c2b1b-2d5b-4485-8655-9de11bf815b2)
+
